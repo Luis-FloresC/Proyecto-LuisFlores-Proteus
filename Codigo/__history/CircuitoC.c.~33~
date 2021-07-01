@@ -86,7 +86,7 @@ else
 {
    j=i-1;
 }
-output_b(miDisplay[4]);
+
   switch(j)
   {
     case 0:

@@ -72,27 +72,17 @@ if(bit_test(portA,0)==1)
            i++;
     break;
   }
-  bit_set(tris_a,0);
+  
 }
-
-if(bit_test(portA,1)==1)
+else if(bit_test(portA,0)==1)
 {
-
-if(i == 0)
-{
-   j = i;
-}
-else
-{
-   j=i-1;
-}
-output_b(miDisplay[4]);
+ j = i -1;
   switch(j)
   {
     case 0:
            output_b(miDisplay[j]);
            delay_ms(1500);
-           
+           j--;
     break;
     case 1:
            output_b(miDisplay[j]);
@@ -102,7 +92,7 @@ output_b(miDisplay[4]);
     case 2:
            output_b(miDisplay[j]);
            delay_ms(1500);
-           
+           j--;
     break;
     case 3:
            output_b(miDisplay[j]);
@@ -112,32 +102,32 @@ output_b(miDisplay[4]);
     case 4:
            output_b(miDisplay[j]);
            delay_ms(1500);
-           
+           j--;
     break;
     case 5:
            output_b(miDisplay[j]);
            delay_ms(1500);
-           
+           j--;
     break;
       case 6:
            output_b(miDisplay[j]);
            delay_ms(1500);
-           
+           j--;
     break;
     
       case 7:
            output_b(miDisplay[j]);
            delay_ms(1500);
-           
+           j--;
     break;
     
      case 8:
            output_b(miDisplay[j]);
            delay_ms(1500);
-          
+           j--;
     break;
   }
-  bit_set(tris_a,0);
+  
 }
 
 if(i==9)

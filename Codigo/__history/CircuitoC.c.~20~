@@ -15,7 +15,7 @@ tris_b= 0x00;
 //tris_a = 0xFF;
 portB = 0x00;
 bit_set(tris_a,0);
-int i=0,j=0;
+int i=0,j=8;
 
 while(true)
 {
@@ -72,72 +72,62 @@ if(bit_test(portA,0)==1)
            i++;
     break;
   }
-  bit_set(tris_a,0);
+  
 }
 
-if(bit_test(portA,1)==1)
+if(bit_test(portA,2)==1)
 {
-
-if(i == 0)
-{
-   j = i;
-}
-else
-{
-   j=i-1;
-}
-output_b(miDisplay[4]);
-  switch(j)
+  switch(i)
   {
     case 0:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-           
+           j--;
     break;
     case 1:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
            j--;
     break;
     case 2:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-           
+           j--;
     break;
     case 3:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
            j--;
     break;
     case 4:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-           
+           j--;
     break;
     case 5:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-           
+           j--;
     break;
       case 6:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-           
+           j--;
     break;
     
       case 7:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-           
+           j--;
     break;
     
      case 8:
-           output_b(miDisplay[j]);
+           output_b(miDisplay[i]);
            delay_ms(1500);
-          
+           j--;
     break;
   }
-  bit_set(tris_a,0);
+  
 }
 
 if(i==9)
@@ -145,12 +135,10 @@ if(i==9)
   i=0;
   
 }
-
 if(j < 0)
 {
   j=8;
 }
-
 }
 
 
