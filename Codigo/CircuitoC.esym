@@ -1,7 +1,8 @@
-D G "__PCM__" 0 159 ""5.015""
-D G "__DEVICE__" 0 159 "886"
-D G "__DATE__" 0 159 ""30-jun.-21""
-D G "__TIME__" 0 159 ""19:57:20"" "Standard Header file for the PIC16F886 device ////////////////"
+d G "INT_RB7" 1 748 "0x1800B08"
+D G "__PCM__" 0 174 ""5.015""
+D G "__DEVICE__" 0 174 "886"
+D G "__DATE__" 0 174 ""30-jun.-21""
+D G "__TIME__" 0 174 ""21:07:54"" "Standard Header file for the PIC16F886 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 39 "int8" `54 
 f B "set_tris_a" 1 39 "void(int8 value)" `53 
@@ -834,8 +835,8 @@ d G "INT_RB7" 1 748 "0x1800B08"
 V G "miDisplay" 0 9 "[10]" `617 
 F G "main" 0 12 "void()" `620 
 C L "main" 0 15 1 "FUNCTION"
-V L "i" 0 18 "int8" `623 
-V L "j" 0 18 "int8" `624 
+V L "i" 0 19 "int8" `624 
+V L "j" 0 19 "int8" `625 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

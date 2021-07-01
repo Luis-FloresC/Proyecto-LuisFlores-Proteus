@@ -36,7 +36,7 @@ if(bit_test(portA,0)==1)
     break;
     case 1:
            output_b(miDisplay[i]);
-           output_c(0b01000000);
+            output_c(0b10000000);
            delay_ms(1500);
            
            i++;
@@ -55,33 +55,28 @@ if(bit_test(portA,0)==1)
     break;
     case 4:
            output_b(miDisplay[i]);
-           output_c(0b00010000);
            delay_ms(1500);
            i++;
     break;
     case 5:
            output_b(miDisplay[i]);
-           output_c(0b00001000);
            delay_ms(1500);
            i++;
     break;
       case 6:
            output_b(miDisplay[i]);
-            output_c(0b00000100);
            delay_ms(1500);
            i++;
     break;
     
       case 7:
            output_b(miDisplay[i]);
-            output_c(0b00000010);
            delay_ms(1500);
            i++;
     break;
     
      case 8:
            output_b(miDisplay[i]);
-            output_c(0b00000001);
            delay_ms(1500);
            i++;
     break;
