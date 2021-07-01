@@ -10,9 +10,10 @@
 01C     CCP_2_HIGH
 020     @TRIS_C
 021     main.i
-022     main.Tiempo
-023     @delay_ms1.P1
-023     main.@SCRATCH1
+022     main.ant
+023     main.Tiempo
+024     main.@SCRATCH1
+025     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -32,16 +33,16 @@ ROM Allocation:
 000027  @cinit1
 000027  main
 00003B  @cinit2
-0001EC  @goto10568
+00021E  @goto10568
 
 Project Directory:
     C:\Users\Luis Flores\Documents\II PERIODO 2021\MICROCONTROLADORES\Proyecto - Luis Flores\Codigo\
 
 Project Files:
-    CircuitoC.c                                             [30-jun.-21 21:50  CRC=7BEA0F5A]
+    CircuitoC.c                                             [01-jul.-21 08:45  CRC=679BED2C]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f886.h [12-nov.-13 14:35  CRC=E3D32390]
 
-Source signature=4390567A
+Source signature=2F42344C
 
 Units:
     CircuitoC (main)

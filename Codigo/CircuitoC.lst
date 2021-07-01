@@ -1,11 +1,11 @@
-CCS PCM C Compiler, Version 5.015, 5967               30-jun.-21 21:49
+CCS PCM C Compiler, Version 5.015, 5967               01-jul.-21 08:45
 
                Filename:   C:\Users\Luis Flores\Documents\II PERIODO 2021\MICROCONTROLADORES\Proyecto - Luis Flores\Codigo\CircuitoC.lst
 
-               ROM used:   505 words (6%)
+               ROM used:   555 words (7%)
                            Largest free fragment is 2048
                RAM used:   7 (2%) at main() level
-                           9 (2%) worst case
+                           11 (3%) worst case
                Stack used: 1 locations
                Stack size: 8
 
@@ -41,26 +41,26 @@ CCS PCM C Compiler, Version 5.015, 5967               30-jun.-21 21:49
 0010:  RETLW  7F
 0011:  RETLW  6F
 *
-01EC:  BSF    0A.0
-01ED:  BCF    0A.1
-01EE:  BCF    0A.2
-01EF:  ADDWF  02,F
-01F0:  GOTO   05D
-01F1:  GOTO   070
-01F2:  GOTO   084
-01F3:  GOTO   098
-01F4:  GOTO   0AC
-01F5:  GOTO   0C0
-01F6:  GOTO   0D4
-01F7:  GOTO   0E8
-01F8:  GOTO   0FC
+021E:  BCF    0A.0
+021F:  BSF    0A.1
+0220:  BCF    0A.2
+0221:  ADDWF  02,F
+0222:  GOTO   05E
+0223:  GOTO   073
+0224:  GOTO   089
+0225:  GOTO   09F
+0226:  GOTO   0B5
+0227:  GOTO   0CB
+0228:  GOTO   0E1
+0229:  GOTO   0F7
+022A:  GOTO   10D
 ....................  
 .................... #list 
 ....................  
 .................... #Fuses XT,NOPROTECT,NOWDT,NOBROWNOUT,PUT,NOLVP       
 .................... #use delay(clock= 4M) 
 *
-0012:  MOVLW  23
+0012:  MOVLW  25
 0013:  MOVWF  04
 0014:  BCF    03.7
 0015:  MOVF   00,W
@@ -132,560 +132,610 @@ CCS PCM C Compiler, Version 5.015, 5967               30-jun.-21 21:49
 0048:  BCF    03.5
 0049:  CLRF   07
 .................... int i=0; 
+.................... int ant=0; 
 004A:  CLRF   21
+004B:  CLRF   22
 .................... set_tris_c(0x00);  
-004B:  BSF    03.5
-004C:  MOVWF  07
-004D:  BCF    03.5
-004E:  MOVWF  20
+004C:  BSF    03.5
+004D:  MOVWF  07
+004E:  BCF    03.5
+004F:  MOVWF  20
 .................... set_tris_a(0xFF); 
-004F:  MOVLW  FF
-0050:  BSF    03.5
-0051:  MOVWF  05
+0050:  MOVLW  FF
+0051:  BSF    03.5
+0052:  MOVWF  05
 .................... int Tiempo = 1500; 
-0052:  MOVLW  DC
-0053:  BCF    03.5
-0054:  MOVWF  22
+0053:  MOVLW  DC
+0054:  BCF    03.5
+0055:  MOVWF  23
 ....................  
 .................... while(true) 
 .................... { 
 ....................  
 .................... if(bit_test(portA,0)==1) 
-0055:  BTFSS  05.0
-0056:  GOTO   10F
+0056:  BTFSS  05.0
+0057:  GOTO   122
 .................... { 
 ....................   switch(i) 
-0057:  MOVF   21,W
-0058:  ADDLW  F7
-0059:  BTFSC  03.0
-005A:  GOTO   10F
-005B:  ADDLW  09
-005C:  GOTO   1EC
+0058:  MOVF   21,W
+0059:  ADDLW  F7
+005A:  BTFSC  03.0
+005B:  GOTO   122
+005C:  ADDLW  09
+005D:  GOTO   21E
 ....................   { 
 ....................     case 0: 
 ....................            output_b(miDisplay[i]); 
-005D:  MOVF   21,W
-005E:  CALL   004
-005F:  MOVWF  23
-0060:  BSF    03.5
-0061:  CLRF   06
-0062:  BCF    03.5
-0063:  MOVF   23,W
-0064:  MOVWF  06
+005E:  MOVF   21,W
+005F:  CALL   004
+0060:  MOVWF  24
+0061:  BSF    03.5
+0062:  CLRF   06
+0063:  BCF    03.5
+0064:  MOVF   24,W
+0065:  MOVWF  06
 ....................            output_c(0x00); 
-0065:  MOVLW  00
-0066:  MOVWF  20
-0067:  BSF    03.5
-0068:  CLRF   07
-0069:  BCF    03.5
-006A:  CLRF   07
+0066:  MOVLW  00
+0067:  MOVWF  20
+0068:  BSF    03.5
+0069:  CLRF   07
+006A:  BCF    03.5
+006B:  CLRF   07
 ....................            delay_ms(Tiempo); 
-006B:  MOVF   22,W
-006C:  MOVWF  23
-006D:  CALL   012
-....................            
+006C:  MOVF   23,W
+006D:  MOVWF  25
+006E:  CALL   012
+....................           ant = i; 
+006F:  MOVF   21,W
+0070:  MOVWF  22
 ....................            i++; 
-006E:  INCF   21,F
+0071:  INCF   21,F
 ....................     break; 
-006F:  GOTO   10F
+0072:  GOTO   122
 ....................     case 1: 
 ....................            output_b(miDisplay[i]); 
-0070:  MOVF   21,W
-0071:  CALL   004
-0072:  MOVWF  23
-0073:  BSF    03.5
-0074:  CLRF   06
-0075:  BCF    03.5
-0076:  MOVF   23,W
-0077:  MOVWF  06
+0073:  MOVF   21,W
+0074:  CALL   004
+0075:  MOVWF  24
+0076:  BSF    03.5
+0077:  CLRF   06
+0078:  BCF    03.5
+0079:  MOVF   24,W
+007A:  MOVWF  06
 ....................            output_c(0b01000000); 
-0078:  MOVLW  00
-0079:  MOVWF  20
-007A:  BSF    03.5
-007B:  CLRF   07
-007C:  MOVLW  40
-007D:  BCF    03.5
-007E:  MOVWF  07
+007B:  MOVLW  00
+007C:  MOVWF  20
+007D:  BSF    03.5
+007E:  CLRF   07
+007F:  MOVLW  40
+0080:  BCF    03.5
+0081:  MOVWF  07
 ....................          delay_ms(Tiempo); 
-007F:  MOVF   22,W
-0080:  MOVWF  23
-0081:  CALL   012
-....................             
+0082:  MOVF   23,W
+0083:  MOVWF  25
+0084:  CALL   012
+....................            ant = i; 
+0085:  MOVF   21,W
+0086:  MOVWF  22
 ....................            i++; 
-0082:  INCF   21,F
+0087:  INCF   21,F
 ....................     break; 
-0083:  GOTO   10F
+0088:  GOTO   122
 ....................     case 2: 
 ....................            output_b(miDisplay[i]); 
-0084:  MOVF   21,W
-0085:  CALL   004
-0086:  MOVWF  23
-0087:  BSF    03.5
-0088:  CLRF   06
-0089:  BCF    03.5
-008A:  MOVF   23,W
-008B:  MOVWF  06
+0089:  MOVF   21,W
+008A:  CALL   004
+008B:  MOVWF  24
+008C:  BSF    03.5
+008D:  CLRF   06
+008E:  BCF    03.5
+008F:  MOVF   24,W
+0090:  MOVWF  06
 ....................            output_c(0b00100000); 
-008C:  MOVLW  00
-008D:  MOVWF  20
-008E:  BSF    03.5
-008F:  CLRF   07
-0090:  MOVLW  20
-0091:  BCF    03.5
-0092:  MOVWF  07
+0091:  MOVLW  00
+0092:  MOVWF  20
+0093:  BSF    03.5
+0094:  CLRF   07
+0095:  MOVLW  20
+0096:  BCF    03.5
+0097:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-0093:  MOVF   22,W
-0094:  MOVWF  23
-0095:  CALL   012
+0098:  MOVF   23,W
+0099:  MOVWF  25
+009A:  CALL   012
+....................            ant = i; 
+009B:  MOVF   21,W
+009C:  MOVWF  22
 ....................            i++; 
-0096:  INCF   21,F
+009D:  INCF   21,F
 ....................     break; 
-0097:  GOTO   10F
+009E:  GOTO   122
 ....................     case 3: 
 ....................            output_b(miDisplay[i]); 
-0098:  MOVF   21,W
-0099:  CALL   004
-009A:  MOVWF  23
-009B:  BSF    03.5
-009C:  CLRF   06
-009D:  BCF    03.5
-009E:  MOVF   23,W
-009F:  MOVWF  06
-....................            output_c(0b00010000); 
-00A0:  MOVLW  00
-00A1:  MOVWF  20
+009F:  MOVF   21,W
+00A0:  CALL   004
+00A1:  MOVWF  24
 00A2:  BSF    03.5
-00A3:  CLRF   07
-00A4:  MOVLW  10
-00A5:  BCF    03.5
-00A6:  MOVWF  07
+00A3:  CLRF   06
+00A4:  BCF    03.5
+00A5:  MOVF   24,W
+00A6:  MOVWF  06
+....................            output_c(0b00010000); 
+00A7:  MOVLW  00
+00A8:  MOVWF  20
+00A9:  BSF    03.5
+00AA:  CLRF   07
+00AB:  MOVLW  10
+00AC:  BCF    03.5
+00AD:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-00A7:  MOVF   22,W
-00A8:  MOVWF  23
-00A9:  CALL   012
+00AE:  MOVF   23,W
+00AF:  MOVWF  25
+00B0:  CALL   012
+....................            ant = i; 
+00B1:  MOVF   21,W
+00B2:  MOVWF  22
 ....................            i++; 
-00AA:  INCF   21,F
+00B3:  INCF   21,F
 ....................     break; 
-00AB:  GOTO   10F
+00B4:  GOTO   122
 ....................     case 4: 
 ....................            output_b(miDisplay[i]); 
-00AC:  MOVF   21,W
-00AD:  CALL   004
-00AE:  MOVWF  23
-00AF:  BSF    03.5
-00B0:  CLRF   06
-00B1:  BCF    03.5
-00B2:  MOVF   23,W
-00B3:  MOVWF  06
+00B5:  MOVF   21,W
+00B6:  CALL   004
+00B7:  MOVWF  24
+00B8:  BSF    03.5
+00B9:  CLRF   06
+00BA:  BCF    03.5
+00BB:  MOVF   24,W
+00BC:  MOVWF  06
 ....................            output_c(0b00010000); 
-00B4:  MOVLW  00
-00B5:  MOVWF  20
-00B6:  BSF    03.5
-00B7:  CLRF   07
-00B8:  MOVLW  10
-00B9:  BCF    03.5
-00BA:  MOVWF  07
+00BD:  MOVLW  00
+00BE:  MOVWF  20
+00BF:  BSF    03.5
+00C0:  CLRF   07
+00C1:  MOVLW  10
+00C2:  BCF    03.5
+00C3:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-00BB:  MOVF   22,W
-00BC:  MOVWF  23
-00BD:  CALL   012
+00C4:  MOVF   23,W
+00C5:  MOVWF  25
+00C6:  CALL   012
+....................            ant = i; 
+00C7:  MOVF   21,W
+00C8:  MOVWF  22
 ....................            i++; 
-00BE:  INCF   21,F
+00C9:  INCF   21,F
 ....................     break; 
-00BF:  GOTO   10F
+00CA:  GOTO   122
 ....................     case 5: 
 ....................            output_b(miDisplay[i]); 
-00C0:  MOVF   21,W
-00C1:  CALL   004
-00C2:  MOVWF  23
-00C3:  BSF    03.5
-00C4:  CLRF   06
-00C5:  BCF    03.5
-00C6:  MOVF   23,W
-00C7:  MOVWF  06
+00CB:  MOVF   21,W
+00CC:  CALL   004
+00CD:  MOVWF  24
+00CE:  BSF    03.5
+00CF:  CLRF   06
+00D0:  BCF    03.5
+00D1:  MOVF   24,W
+00D2:  MOVWF  06
 ....................            output_c(0b00001000); 
-00C8:  MOVLW  00
-00C9:  MOVWF  20
-00CA:  BSF    03.5
-00CB:  CLRF   07
-00CC:  MOVLW  08
-00CD:  BCF    03.5
-00CE:  MOVWF  07
+00D3:  MOVLW  00
+00D4:  MOVWF  20
+00D5:  BSF    03.5
+00D6:  CLRF   07
+00D7:  MOVLW  08
+00D8:  BCF    03.5
+00D9:  MOVWF  07
 ....................           delay_ms(Tiempo); 
-00CF:  MOVF   22,W
-00D0:  MOVWF  23
-00D1:  CALL   012
+00DA:  MOVF   23,W
+00DB:  MOVWF  25
+00DC:  CALL   012
+....................           ant = i; 
+00DD:  MOVF   21,W
+00DE:  MOVWF  22
 ....................            i++; 
-00D2:  INCF   21,F
+00DF:  INCF   21,F
 ....................     break; 
-00D3:  GOTO   10F
+00E0:  GOTO   122
 ....................       case 6: 
 ....................            output_b(miDisplay[i]); 
-00D4:  MOVF   21,W
-00D5:  CALL   004
-00D6:  MOVWF  23
-00D7:  BSF    03.5
-00D8:  CLRF   06
-00D9:  BCF    03.5
-00DA:  MOVF   23,W
-00DB:  MOVWF  06
+00E1:  MOVF   21,W
+00E2:  CALL   004
+00E3:  MOVWF  24
+00E4:  BSF    03.5
+00E5:  CLRF   06
+00E6:  BCF    03.5
+00E7:  MOVF   24,W
+00E8:  MOVWF  06
 ....................             output_c(0b00000100); 
-00DC:  MOVLW  00
-00DD:  MOVWF  20
-00DE:  BSF    03.5
-00DF:  CLRF   07
-00E0:  MOVLW  04
-00E1:  BCF    03.5
-00E2:  MOVWF  07
+00E9:  MOVLW  00
+00EA:  MOVWF  20
+00EB:  BSF    03.5
+00EC:  CLRF   07
+00ED:  MOVLW  04
+00EE:  BCF    03.5
+00EF:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-00E3:  MOVF   22,W
-00E4:  MOVWF  23
-00E5:  CALL   012
+00F0:  MOVF   23,W
+00F1:  MOVWF  25
+00F2:  CALL   012
+....................            ant = i; 
+00F3:  MOVF   21,W
+00F4:  MOVWF  22
 ....................            i++; 
-00E6:  INCF   21,F
+00F5:  INCF   21,F
 ....................     break; 
-00E7:  GOTO   10F
+00F6:  GOTO   122
 ....................      
 ....................       case 7: 
 ....................            output_b(miDisplay[i]); 
-00E8:  MOVF   21,W
-00E9:  CALL   004
-00EA:  MOVWF  23
-00EB:  BSF    03.5
-00EC:  CLRF   06
-00ED:  BCF    03.5
-00EE:  MOVF   23,W
-00EF:  MOVWF  06
+00F7:  MOVF   21,W
+00F8:  CALL   004
+00F9:  MOVWF  24
+00FA:  BSF    03.5
+00FB:  CLRF   06
+00FC:  BCF    03.5
+00FD:  MOVF   24,W
+00FE:  MOVWF  06
 ....................             output_c(0b00000010); 
-00F0:  MOVLW  00
-00F1:  MOVWF  20
-00F2:  BSF    03.5
-00F3:  CLRF   07
-00F4:  MOVLW  02
-00F5:  BCF    03.5
-00F6:  MOVWF  07
+00FF:  MOVLW  00
+0100:  MOVWF  20
+0101:  BSF    03.5
+0102:  CLRF   07
+0103:  MOVLW  02
+0104:  BCF    03.5
+0105:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-00F7:  MOVF   22,W
-00F8:  MOVWF  23
-00F9:  CALL   012
+0106:  MOVF   23,W
+0107:  MOVWF  25
+0108:  CALL   012
+....................            ant = i; 
+0109:  MOVF   21,W
+010A:  MOVWF  22
 ....................            i++; 
-00FA:  INCF   21,F
+010B:  INCF   21,F
 ....................     break; 
-00FB:  GOTO   10F
+010C:  GOTO   122
 ....................      
 ....................      case 8: 
 ....................            output_b(miDisplay[i]); 
-00FC:  MOVF   21,W
-00FD:  CALL   004
-00FE:  MOVWF  23
-00FF:  BSF    03.5
-0100:  CLRF   06
-0101:  BCF    03.5
-0102:  MOVF   23,W
-0103:  MOVWF  06
+010D:  MOVF   21,W
+010E:  CALL   004
+010F:  MOVWF  24
+0110:  BSF    03.5
+0111:  CLRF   06
+0112:  BCF    03.5
+0113:  MOVF   24,W
+0114:  MOVWF  06
 ....................             output_c(0b00000001); 
-0104:  MOVLW  00
-0105:  MOVWF  20
-0106:  BSF    03.5
-0107:  CLRF   07
-0108:  MOVLW  01
-0109:  BCF    03.5
-010A:  MOVWF  07
+0115:  MOVLW  00
+0116:  MOVWF  20
+0117:  BSF    03.5
+0118:  CLRF   07
+0119:  MOVLW  01
+011A:  BCF    03.5
+011B:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-010B:  MOVF   22,W
-010C:  MOVWF  23
-010D:  CALL   012
+011C:  MOVF   23,W
+011D:  MOVWF  25
+011E:  CALL   012
+....................            ant = i; 
+011F:  MOVF   21,W
+0120:  MOVWF  22
 ....................            i++; 
-010E:  INCF   21,F
+0121:  INCF   21,F
 ....................     break; 
 ....................   } 
+....................  
 ....................  
 .................... } 
 ....................  
 .................... if(bit_test(portA,1)==1) 
-010F:  BTFSS  05.1
-0110:  GOTO   1E6
+0122:  BTFSS  05.1
+0123:  GOTO   20E
 .................... { 
-....................  
+.................... i = ant; 
+0124:  MOVF   22,W
+0125:  MOVWF  21
 .................... i--; 
-0111:  DECF   21,F
+0126:  DECF   21,F
 ....................  switch(i) 
-0112:  MOVF   21,W
-0113:  BTFSC  03.2
-0114:  GOTO   12E
-0115:  XORLW  01
-0116:  BTFSC  03.2
-0117:  GOTO   140
-0118:  XORLW  03
-0119:  BTFSC  03.2
-011A:  GOTO   153
-011B:  XORLW  01
-011C:  BTFSC  03.2
-011D:  GOTO   166
-011E:  XORLW  07
-011F:  BTFSC  03.2
-0120:  GOTO   179
-0121:  XORLW  01
-0122:  BTFSC  03.2
-0123:  GOTO   18C
-0124:  XORLW  03
-0125:  BTFSC  03.2
-0126:  GOTO   19F
-0127:  XORLW  01
+0127:  MOVF   21,W
 0128:  BTFSC  03.2
-0129:  GOTO   1B2
-012A:  XORLW  0F
+0129:  GOTO   143
+012A:  XORLW  01
 012B:  BTFSC  03.2
-012C:  GOTO   1C5
-012D:  GOTO   1D8
+012C:  GOTO   157
+012D:  XORLW  03
+012E:  BTFSC  03.2
+012F:  GOTO   16C
+0130:  XORLW  01
+0131:  BTFSC  03.2
+0132:  GOTO   181
+0133:  XORLW  07
+0134:  BTFSC  03.2
+0135:  GOTO   196
+0136:  XORLW  01
+0137:  BTFSC  03.2
+0138:  GOTO   1AB
+0139:  XORLW  03
+013A:  BTFSC  03.2
+013B:  GOTO   1C0
+013C:  XORLW  01
+013D:  BTFSC  03.2
+013E:  GOTO   1D5
+013F:  XORLW  0F
+0140:  BTFSC  03.2
+0141:  GOTO   1EA
+0142:  GOTO   1FF
 ....................   { 
 ....................     case 0: 
 ....................            output_b(miDisplay[i]); 
-012E:  MOVF   21,W
-012F:  CALL   004
-0130:  MOVWF  23
-0131:  BSF    03.5
-0132:  CLRF   06
-0133:  BCF    03.5
-0134:  MOVF   23,W
-0135:  MOVWF  06
+0143:  MOVF   21,W
+0144:  CALL   004
+0145:  MOVWF  24
+0146:  BSF    03.5
+0147:  CLRF   06
+0148:  BCF    03.5
+0149:  MOVF   24,W
+014A:  MOVWF  06
 ....................            output_c(0x00); 
-0136:  MOVLW  00
-0137:  MOVWF  20
-0138:  BSF    03.5
-0139:  CLRF   07
-013A:  BCF    03.5
-013B:  CLRF   07
+014B:  MOVLW  00
+014C:  MOVWF  20
+014D:  BSF    03.5
+014E:  CLRF   07
+014F:  BCF    03.5
+0150:  CLRF   07
 ....................            delay_ms(Tiempo); 
-013C:  MOVF   22,W
-013D:  MOVWF  23
-013E:  CALL   012
-....................            
+0151:  MOVF   23,W
+0152:  MOVWF  25
+0153:  CALL   012
+....................             ant = i; 
+0154:  MOVF   21,W
+0155:  MOVWF  22
 ....................          
 ....................     break; 
-013F:  GOTO   1E6
+0156:  GOTO   20E
 ....................     case 1: 
 ....................            output_b(miDisplay[i]); 
-0140:  MOVF   21,W
-0141:  CALL   004
-0142:  MOVWF  23
-0143:  BSF    03.5
-0144:  CLRF   06
-0145:  BCF    03.5
-0146:  MOVF   23,W
-0147:  MOVWF  06
+0157:  MOVF   21,W
+0158:  CALL   004
+0159:  MOVWF  24
+015A:  BSF    03.5
+015B:  CLRF   06
+015C:  BCF    03.5
+015D:  MOVF   24,W
+015E:  MOVWF  06
 ....................            output_c(0b01000000); 
-0148:  MOVLW  00
-0149:  MOVWF  20
-014A:  BSF    03.5
-014B:  CLRF   07
-014C:  MOVLW  40
-014D:  BCF    03.5
-014E:  MOVWF  07
+015F:  MOVLW  00
+0160:  MOVWF  20
+0161:  BSF    03.5
+0162:  CLRF   07
+0163:  MOVLW  40
+0164:  BCF    03.5
+0165:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-014F:  MOVF   22,W
-0150:  MOVWF  23
-0151:  CALL   012
-....................             
+0166:  MOVF   23,W
+0167:  MOVWF  25
+0168:  CALL   012
+....................             ant = i; 
+0169:  MOVF   21,W
+016A:  MOVWF  22
 ....................           
 ....................     break; 
-0152:  GOTO   1E6
+016B:  GOTO   20E
 ....................     case 2: 
 ....................            output_b(miDisplay[i]); 
-0153:  MOVF   21,W
-0154:  CALL   004
-0155:  MOVWF  23
-0156:  BSF    03.5
-0157:  CLRF   06
-0158:  BCF    03.5
-0159:  MOVF   23,W
-015A:  MOVWF  06
+016C:  MOVF   21,W
+016D:  CALL   004
+016E:  MOVWF  24
+016F:  BSF    03.5
+0170:  CLRF   06
+0171:  BCF    03.5
+0172:  MOVF   24,W
+0173:  MOVWF  06
 ....................            output_c(0b00100000); 
-015B:  MOVLW  00
-015C:  MOVWF  20
-015D:  BSF    03.5
-015E:  CLRF   07
-015F:  MOVLW  20
-0160:  BCF    03.5
-0161:  MOVWF  07
+0174:  MOVLW  00
+0175:  MOVWF  20
+0176:  BSF    03.5
+0177:  CLRF   07
+0178:  MOVLW  20
+0179:  BCF    03.5
+017A:  MOVWF  07
 ....................          delay_ms(Tiempo); 
-0162:  MOVF   22,W
-0163:  MOVWF  23
-0164:  CALL   012
-....................           
+017B:  MOVF   23,W
+017C:  MOVWF  25
+017D:  CALL   012
+....................           ant = i; 
+017E:  MOVF   21,W
+017F:  MOVWF  22
 ....................     break; 
-0165:  GOTO   1E6
+0180:  GOTO   20E
 ....................     case 3: 
 ....................            output_b(miDisplay[i]); 
-0166:  MOVF   21,W
-0167:  CALL   004
-0168:  MOVWF  23
-0169:  BSF    03.5
-016A:  CLRF   06
-016B:  BCF    03.5
-016C:  MOVF   23,W
-016D:  MOVWF  06
+0181:  MOVF   21,W
+0182:  CALL   004
+0183:  MOVWF  24
+0184:  BSF    03.5
+0185:  CLRF   06
+0186:  BCF    03.5
+0187:  MOVF   24,W
+0188:  MOVWF  06
 ....................            output_c(0b00010000); 
-016E:  MOVLW  00
-016F:  MOVWF  20
-0170:  BSF    03.5
-0171:  CLRF   07
-0172:  MOVLW  10
-0173:  BCF    03.5
-0174:  MOVWF  07
+0189:  MOVLW  00
+018A:  MOVWF  20
+018B:  BSF    03.5
+018C:  CLRF   07
+018D:  MOVLW  10
+018E:  BCF    03.5
+018F:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-0175:  MOVF   22,W
-0176:  MOVWF  23
-0177:  CALL   012
-....................            
+0190:  MOVF   23,W
+0191:  MOVWF  25
+0192:  CALL   012
+....................            ant = i; 
+0193:  MOVF   21,W
+0194:  MOVWF  22
 ....................     break; 
-0178:  GOTO   1E6
+0195:  GOTO   20E
 ....................     case 4: 
 ....................            output_b(miDisplay[i]); 
-0179:  MOVF   21,W
-017A:  CALL   004
-017B:  MOVWF  23
-017C:  BSF    03.5
-017D:  CLRF   06
-017E:  BCF    03.5
-017F:  MOVF   23,W
-0180:  MOVWF  06
+0196:  MOVF   21,W
+0197:  CALL   004
+0198:  MOVWF  24
+0199:  BSF    03.5
+019A:  CLRF   06
+019B:  BCF    03.5
+019C:  MOVF   24,W
+019D:  MOVWF  06
 ....................            output_c(0b00010000); 
-0181:  MOVLW  00
-0182:  MOVWF  20
-0183:  BSF    03.5
-0184:  CLRF   07
-0185:  MOVLW  10
-0186:  BCF    03.5
-0187:  MOVWF  07
+019E:  MOVLW  00
+019F:  MOVWF  20
+01A0:  BSF    03.5
+01A1:  CLRF   07
+01A2:  MOVLW  10
+01A3:  BCF    03.5
+01A4:  MOVWF  07
 ....................           delay_ms(Tiempo); 
-0188:  MOVF   22,W
-0189:  MOVWF  23
-018A:  CALL   012
-....................        
+01A5:  MOVF   23,W
+01A6:  MOVWF  25
+01A7:  CALL   012
+....................            ant = i; 
+01A8:  MOVF   21,W
+01A9:  MOVWF  22
 ....................     break; 
-018B:  GOTO   1E6
+01AA:  GOTO   20E
 ....................     case 5: 
 ....................            output_b(miDisplay[i]); 
-018C:  MOVF   21,W
-018D:  CALL   004
-018E:  MOVWF  23
-018F:  BSF    03.5
-0190:  CLRF   06
-0191:  BCF    03.5
-0192:  MOVF   23,W
-0193:  MOVWF  06
+01AB:  MOVF   21,W
+01AC:  CALL   004
+01AD:  MOVWF  24
+01AE:  BSF    03.5
+01AF:  CLRF   06
+01B0:  BCF    03.5
+01B1:  MOVF   24,W
+01B2:  MOVWF  06
 ....................            output_c(0b00001000); 
-0194:  MOVLW  00
-0195:  MOVWF  20
-0196:  BSF    03.5
-0197:  CLRF   07
-0198:  MOVLW  08
-0199:  BCF    03.5
-019A:  MOVWF  07
+01B3:  MOVLW  00
+01B4:  MOVWF  20
+01B5:  BSF    03.5
+01B6:  CLRF   07
+01B7:  MOVLW  08
+01B8:  BCF    03.5
+01B9:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-019B:  MOVF   22,W
-019C:  MOVWF  23
-019D:  CALL   012
-....................         
+01BA:  MOVF   23,W
+01BB:  MOVWF  25
+01BC:  CALL   012
+....................             ant = i; 
+01BD:  MOVF   21,W
+01BE:  MOVWF  22
 ....................     break; 
-019E:  GOTO   1E6
+01BF:  GOTO   20E
 ....................       case 6: 
 ....................            output_b(miDisplay[i]); 
-019F:  MOVF   21,W
-01A0:  CALL   004
-01A1:  MOVWF  23
-01A2:  BSF    03.5
-01A3:  CLRF   06
-01A4:  BCF    03.5
-01A5:  MOVF   23,W
-01A6:  MOVWF  06
+01C0:  MOVF   21,W
+01C1:  CALL   004
+01C2:  MOVWF  24
+01C3:  BSF    03.5
+01C4:  CLRF   06
+01C5:  BCF    03.5
+01C6:  MOVF   24,W
+01C7:  MOVWF  06
 ....................             output_c(0b00000100); 
-01A7:  MOVLW  00
-01A8:  MOVWF  20
-01A9:  BSF    03.5
-01AA:  CLRF   07
-01AB:  MOVLW  04
-01AC:  BCF    03.5
-01AD:  MOVWF  07
+01C8:  MOVLW  00
+01C9:  MOVWF  20
+01CA:  BSF    03.5
+01CB:  CLRF   07
+01CC:  MOVLW  04
+01CD:  BCF    03.5
+01CE:  MOVWF  07
 ....................            delay_ms(Tiempo); 
-01AE:  MOVF   22,W
-01AF:  MOVWF  23
-01B0:  CALL   012
-....................         
+01CF:  MOVF   23,W
+01D0:  MOVWF  25
+01D1:  CALL   012
+....................             ant = i; 
+01D2:  MOVF   21,W
+01D3:  MOVWF  22
 ....................     break; 
-01B1:  GOTO   1E6
+01D4:  GOTO   20E
 ....................      
 ....................       case 7: 
 ....................            output_b(miDisplay[i]); 
-01B2:  MOVF   21,W
-01B3:  CALL   004
-01B4:  MOVWF  23
-01B5:  BSF    03.5
-01B6:  CLRF   06
-01B7:  BCF    03.5
-01B8:  MOVF   23,W
-01B9:  MOVWF  06
-....................             output_c(0b00000010); 
-01BA:  MOVLW  00
-01BB:  MOVWF  20
-01BC:  BSF    03.5
-01BD:  CLRF   07
-01BE:  MOVLW  02
-01BF:  BCF    03.5
-01C0:  MOVWF  07
-....................            delay_ms(Tiempo); 
-01C1:  MOVF   22,W
-01C2:  MOVWF  23
-01C3:  CALL   012
-....................         
-....................     break; 
-01C4:  GOTO   1E6
-....................      
-....................      case 8: 
-....................            output_b(miDisplay[i]); 
-01C5:  MOVF   21,W
-01C6:  CALL   004
-01C7:  MOVWF  23
-01C8:  BSF    03.5
-01C9:  CLRF   06
-01CA:  BCF    03.5
-01CB:  MOVF   23,W
-01CC:  MOVWF  06
-....................             output_c(0b00000001); 
-01CD:  MOVLW  00
-01CE:  MOVWF  20
-01CF:  BSF    03.5
-01D0:  CLRF   07
-01D1:  MOVLW  01
-01D2:  BCF    03.5
-01D3:  MOVWF  07
-....................            delay_ms(Tiempo); 
-01D4:  MOVF   22,W
-01D5:  MOVWF  23
-01D6:  CALL   012
-....................            
-....................     break; 
-01D7:  GOTO   1E6
-....................      
-....................     default: 
-....................              output_b(miDisplay[0]); 
+01D5:  MOVF   21,W
+01D6:  CALL   004
+01D7:  MOVWF  24
 01D8:  BSF    03.5
 01D9:  CLRF   06
-01DA:  MOVLW  3F
-01DB:  BCF    03.5
+01DA:  BCF    03.5
+01DB:  MOVF   24,W
 01DC:  MOVWF  06
-....................             output_c(0x00); 
+....................             output_c(0b00000010); 
 01DD:  MOVLW  00
 01DE:  MOVWF  20
 01DF:  BSF    03.5
 01E0:  CLRF   07
-01E1:  BCF    03.5
-01E2:  CLRF   07
+01E1:  MOVLW  02
+01E2:  BCF    03.5
+01E3:  MOVWF  07
+....................            delay_ms(Tiempo); 
+01E4:  MOVF   23,W
+01E5:  MOVWF  25
+01E6:  CALL   012
+....................             ant = i; 
+01E7:  MOVF   21,W
+01E8:  MOVWF  22
+....................     break; 
+01E9:  GOTO   20E
+....................      
+....................      case 8: 
+....................            output_b(miDisplay[i]); 
+01EA:  MOVF   21,W
+01EB:  CALL   004
+01EC:  MOVWF  24
+01ED:  BSF    03.5
+01EE:  CLRF   06
+01EF:  BCF    03.5
+01F0:  MOVF   24,W
+01F1:  MOVWF  06
+....................             output_c(0b00000001); 
+01F2:  MOVLW  00
+01F3:  MOVWF  20
+01F4:  BSF    03.5
+01F5:  CLRF   07
+01F6:  MOVLW  01
+01F7:  BCF    03.5
+01F8:  MOVWF  07
+....................            delay_ms(Tiempo); 
+01F9:  MOVF   23,W
+01FA:  MOVWF  25
+01FB:  CALL   012
+....................            ant = i; 
+01FC:  MOVF   21,W
+01FD:  MOVWF  22
+....................     break; 
+01FE:  GOTO   20E
+....................      
+....................     default: 
+....................              output_b(miDisplay[0]); 
+01FF:  BSF    03.5
+0200:  CLRF   06
+0201:  MOVLW  3F
+0202:  BCF    03.5
+0203:  MOVWF  06
+....................             output_c(0x00); 
+0204:  MOVLW  00
+0205:  MOVWF  20
+0206:  BSF    03.5
+0207:  CLRF   07
+0208:  BCF    03.5
+0209:  CLRF   07
 ....................           delay_ms(Tiempo); 
-01E3:  MOVF   22,W
-01E4:  MOVWF  23
-01E5:  CALL   012
+020A:  MOVF   23,W
+020B:  MOVWF  25
+020C:  CALL   012
+....................            ant = 0; 
+020D:  CLRF   22
 ....................     break; 
 ....................   } 
 ....................   
@@ -693,24 +743,35 @@ CCS PCM C Compiler, Version 5.015, 5967               30-jun.-21 21:49
 ....................  
 .................... } 
 ....................  
-.................... if(i==9) 
-01E6:  MOVF   21,W
-01E7:  SUBLW  09
-01E8:  BTFSC  03.2
+....................  
+.................... if(i==9 || i <= 0 ) 
+020E:  MOVF   21,W
+020F:  SUBLW  09
+0210:  BTFSC  03.2
+0211:  GOTO   214
+0212:  MOVF   21,F
+0213:  BTFSC  03.2
 .................... { 
 ....................   i=0; 
-01E9:  CLRF   21
+0214:  CLRF   21
 ....................    
 .................... } 
-01EA:  GOTO   055
 ....................  
 ....................  
-....................  
+.................... delay_ms(500); 
+0215:  MOVLW  02
+0216:  MOVWF  24
+0217:  MOVLW  FA
+0218:  MOVWF  25
+0219:  CALL   012
+021A:  DECFSZ 24,F
+021B:  GOTO   217
+021C:  GOTO   056
 .................... } 
 ....................  
 ....................  
 .................... } 
-01EB:  SLEEP
+021D:  SLEEP
 
 Configuration Fuses:
    Word  1: 2CE1   XT NOWDT PUT MCLR NOPROTECT NOCPD NOBROWNOUT IESO FCMEN NOLVP NODEBUG

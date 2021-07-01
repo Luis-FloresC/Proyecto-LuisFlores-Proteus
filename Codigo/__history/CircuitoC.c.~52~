@@ -17,7 +17,6 @@ portB = 0x00;
 bit_set(tris_a,0);
 output_c(0x00);
 int i=0;
-int ant=0;
 set_tris_c(0x00); 
 set_tris_a(0xFF);
 int Tiempo = 1500;
@@ -33,49 +32,44 @@ if(bit_test(portA,0)==1)
            output_b(miDisplay[i]);
            output_c(0x00);
            delay_ms(Tiempo);
-          ant = i;
+          
            i++;
     break;
     case 1:
            output_b(miDisplay[i]);
            output_c(0b01000000);
          delay_ms(Tiempo);
-           ant = i;
+           
            i++;
     break;
     case 2:
            output_b(miDisplay[i]);
            output_c(0b00100000);
            delay_ms(Tiempo);
-           ant = i;
            i++;
     break;
     case 3:
            output_b(miDisplay[i]);
            output_c(0b00010000);
            delay_ms(Tiempo);
-           ant = i;
            i++;
     break;
     case 4:
            output_b(miDisplay[i]);
            output_c(0b00010000);
            delay_ms(Tiempo);
-           ant = i;
            i++;
     break;
     case 5:
            output_b(miDisplay[i]);
            output_c(0b00001000);
           delay_ms(Tiempo);
-          ant = i;
            i++;
     break;
       case 6:
            output_b(miDisplay[i]);
             output_c(0b00000100);
            delay_ms(Tiempo);
-           ant = i;
            i++;
     break;
     
@@ -83,7 +77,6 @@ if(bit_test(portA,0)==1)
            output_b(miDisplay[i]);
             output_c(0b00000010);
            delay_ms(Tiempo);
-           ant = i;
            i++;
     break;
     
@@ -91,17 +84,15 @@ if(bit_test(portA,0)==1)
            output_b(miDisplay[i]);
             output_c(0b00000001);
            delay_ms(Tiempo);
-           ant = i;
            i++;
     break;
   }
-
 
 }
 
 if(bit_test(portA,1)==1)
 {
-i = ant;
+
 i--;
  switch(i)
   {
@@ -109,66 +100,65 @@ i--;
            output_b(miDisplay[i]);
            output_c(0x00);
            delay_ms(Tiempo);
-            ant = i;
+          
         
     break;
     case 1:
            output_b(miDisplay[i]);
            output_c(0b01000000);
            delay_ms(Tiempo);
-            ant = i;
+           
          
     break;
     case 2:
            output_b(miDisplay[i]);
            output_c(0b00100000);
          delay_ms(Tiempo);
-          ant = i;
+         
     break;
     case 3:
            output_b(miDisplay[i]);
            output_c(0b00010000);
            delay_ms(Tiempo);
-           ant = i;
+          
     break;
     case 4:
            output_b(miDisplay[i]);
            output_c(0b00010000);
           delay_ms(Tiempo);
-           ant = i;
+      
     break;
     case 5:
            output_b(miDisplay[i]);
            output_c(0b00001000);
            delay_ms(Tiempo);
-            ant = i;
+       
     break;
       case 6:
            output_b(miDisplay[i]);
             output_c(0b00000100);
            delay_ms(Tiempo);
-            ant = i;
+       
     break;
     
       case 7:
            output_b(miDisplay[i]);
             output_c(0b00000010);
            delay_ms(Tiempo);
-            ant = i;
+       
     break;
     
      case 8:
            output_b(miDisplay[i]);
             output_c(0b00000001);
            delay_ms(Tiempo);
-           ant = i;
+          
     break;
     
     default:
              output_b(miDisplay[0]);
             output_c(0x00);
           delay_ms(Tiempo);
-           ant = 0;
     break;
   }
  
@@ -176,15 +166,14 @@ i--;
 
 }
 
-
-if(i==9 || i <= 0 )
+if(i==9 || i < 0)
 {
   i=0;
   
 }
 
 
-delay_ms(500);
+
 }
 
 
