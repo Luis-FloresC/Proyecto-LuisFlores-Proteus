@@ -16,10 +16,9 @@ tris_b= 0x00;
 portB = 0x00;
 bit_set(tris_a,0);
 output_c(0x00);
-int i=0;
+int i=0,j=0;
 set_tris_c(0x00); 
 set_tris_a(0xFF);
-int Tiempo = 1500;
 
 while(true)
 {
@@ -31,59 +30,59 @@ if(bit_test(portA,0)==1)
     case 0:
            output_b(miDisplay[i]);
            output_c(0x00);
-           delay_ms(Tiempo);
+           delay_ms(1500);
           
            i++;
     break;
     case 1:
            output_b(miDisplay[i]);
            output_c(0b01000000);
-         delay_ms(Tiempo);
+           delay_ms(1500);
            
            i++;
     break;
     case 2:
            output_b(miDisplay[i]);
            output_c(0b00100000);
-           delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
     case 3:
            output_b(miDisplay[i]);
            output_c(0b00010000);
-           delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
     case 4:
            output_b(miDisplay[i]);
            output_c(0b00010000);
-           delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
     case 5:
            output_b(miDisplay[i]);
            output_c(0b00001000);
-          delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
       case 6:
            output_b(miDisplay[i]);
             output_c(0b00000100);
-           delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
     
       case 7:
            output_b(miDisplay[i]);
             output_c(0b00000010);
-           delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
     
      case 8:
            output_b(miDisplay[i]);
             output_c(0b00000001);
-           delay_ms(Tiempo);
+           delay_ms(1500);
            i++;
     break;
   }
@@ -93,72 +92,63 @@ if(bit_test(portA,0)==1)
 if(bit_test(portA,1)==1)
 {
 
-i--;
- switch(i)
+if(i == 0)
+{
+   j = i;
+}
+else
+{
+   j=i-1;
+}
+  switch(j)
   {
     case 0:
-           output_b(miDisplay[i]);
-           output_c(0x00);
-           delay_ms(Tiempo);
-          
-        
+           output_b(miDisplay[j]);
+           output_c(0b00000000);
+           delay_ms(1500);
+           
     break;
     case 1:
-           output_b(miDisplay[i]);
+           output_b(miDisplay[j]);
            output_c(0b01000000);
-           delay_ms(Tiempo);
-           
-         
+           delay_ms(1500);
     break;
     case 2:
-           output_b(miDisplay[i]);
+           output_b(miDisplay[j]);
            output_c(0b00100000);
-         delay_ms(Tiempo);
-         
+           delay_ms(1500);
     break;
     case 3:
-           output_b(miDisplay[i]);
-           output_c(0b00010000);
-           delay_ms(Tiempo);
-          
+           output_b(miDisplay[j]);
+           output_c(0b0010-0000);
+           delay_ms(1500);
     break;
     case 4:
-           output_b(miDisplay[i]);
-           output_c(0b00010000);
-          delay_ms(Tiempo);
-      
+           output_b(miDisplay[j]);
+           delay_ms(1500);
+           
     break;
     case 5:
-           output_b(miDisplay[i]);
-           output_c(0b00001000);
-           delay_ms(Tiempo);
-       
+           output_b(miDisplay[j]);
+           delay_ms(1500);
+           
     break;
       case 6:
-           output_b(miDisplay[i]);
-            output_c(0b00000100);
-           delay_ms(Tiempo);
-       
+           output_b(miDisplay[j]);
+           delay_ms(1500);
+           
     break;
     
       case 7:
-           output_b(miDisplay[i]);
-            output_c(0b00000010);
-           delay_ms(Tiempo);
-       
+           output_b(miDisplay[j]);
+           delay_ms(1500);
+           
     break;
     
      case 8:
-           output_b(miDisplay[i]);
-            output_c(0b00000001);
-           delay_ms(Tiempo);
+           output_b(miDisplay[j]);
+           delay_ms(1500);
           
-    break;
-    
-    default:
-             output_b(miDisplay[0]);
-            output_c(0x00);
-          delay_ms(Tiempo);
     break;
   }
  
@@ -172,7 +162,10 @@ if(i==9)
   
 }
 
-
+if(j <= 0)
+{
+  j=8;
+}
 
 }
 

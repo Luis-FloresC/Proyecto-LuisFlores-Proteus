@@ -1,7 +1,7 @@
 읕CircuitoC
-   읕main  0/445  Ram=1
+   읕main  0/453  Ram=1
       쳐@cinit1  (Inline)  Ram=0
-      쳐@goto10577  0/13  Ram=0
+      쳐@goto10568  0/13  Ram=0
       쳐@const617  0/14  Ram=0
       쳐@delay_ms1  0/21  Ram=1
       쳐@const617  0/14  Ram=0
@@ -20,7 +20,6 @@
       쳐@delay_ms1  0/21  Ram=1
       쳐@const617  0/14  Ram=0
       쳐@delay_ms1  0/21  Ram=1
-      쳐@goto10613  0/13  Ram=0
       쳐@const617  0/14  Ram=0
       쳐@delay_ms1  0/21  Ram=1
       쳐@const617  0/14  Ram=0
@@ -38,4 +37,5 @@
       쳐@const617  0/14  Ram=0
       쳐@delay_ms1  0/21  Ram=1
       쳐@const617  0/14  Ram=0
+      쳐@delay_ms1  0/21  Ram=1
       읕@delay_ms1  0/21  Ram=1

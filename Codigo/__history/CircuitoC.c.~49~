@@ -19,7 +19,7 @@ output_c(0x00);
 int i=0;
 set_tris_c(0x00); 
 set_tris_a(0xFF);
-int Tiempo = 1500;
+int Tiempo = 100;
 
 while(true)
 {
