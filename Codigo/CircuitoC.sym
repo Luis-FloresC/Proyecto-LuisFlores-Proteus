@@ -2,8 +2,8 @@
 004-005 @WRITE_PROGRAM_MEMORY8.P2
 005     portA
 006     portB
-015     CCP_1
 015     CCP_1_LOW
+015     CCP_1
 016     CCP_1_HIGH
 01B     CCP_2
 01B     CCP_2_LOW
@@ -23,26 +23,28 @@
 086     tris_b
 107.6   C1OUT
 108.6   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
 000004  miDisplay.call
 000008  miDisplay.data
-000012  @delay_ms1
-000027  @cinit1
-000027  main
-00003B  @cinit2
-00021E  @goto10568
+000012  miLeds.call
+000016  miLeds.data
+000020  @delay_ms1
+000035  main
+000035  @cinit1
+000049  @cinit2
+000264  @goto10570
 
 Project Directory:
     C:\Users\Luis Flores\Documents\II PERIODO 2021\MICROCONTROLADORES\Proyecto - Luis Flores\Codigo\
 
 Project Files:
-    CircuitoC.c                                             [01-jul.-21 08:45  CRC=679BED2C]
+    CircuitoC.c                                             [02-jul.-21 15:38  CRC=757E645B]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f886.h [12-nov.-13 14:35  CRC=E3D32390]
 
-Source signature=2F42344C
+Source signature=3D24AB7B
 
 Units:
     CircuitoC (main)

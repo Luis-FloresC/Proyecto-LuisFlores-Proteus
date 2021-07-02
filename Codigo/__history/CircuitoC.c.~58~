@@ -7,7 +7,7 @@
 #byte tris_b = 0x86
 
 byte const miDisplay[10] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
-byte const miLeds[10] = {0x00,0x80,0x40,0x20,0x10,0x8,0x4,0x2,0x1};
+
 void main()
 {
 
@@ -31,49 +31,49 @@ if(bit_test(portA,0)==1)
   {
     case 0:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0x00);
            delay_ms(Tiempo);
           ant = i;
            i++;
     break;
     case 1:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
-           delay_ms(Tiempo);
+           output_c(0b01000000);
+         delay_ms(Tiempo);
            ant = i;
            i++;
     break;
     case 2:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00100000);
            delay_ms(Tiempo);
            ant = i;
            i++;
     break;
     case 3:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00010000);
            delay_ms(Tiempo);
            ant = i;
            i++;
     break;
     case 4:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00010000);
            delay_ms(Tiempo);
            ant = i;
            i++;
     break;
     case 5:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00001000);
           delay_ms(Tiempo);
           ant = i;
            i++;
     break;
       case 6:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+            output_c(0b00000100);
            delay_ms(Tiempo);
            ant = i;
            i++;
@@ -81,7 +81,7 @@ if(bit_test(portA,0)==1)
     
       case 7:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+            output_c(0b00000010);
            delay_ms(Tiempo);
            ant = i;
            i++;
@@ -89,7 +89,7 @@ if(bit_test(portA,0)==1)
     
      case 8:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+            output_c(0b00000001);
            delay_ms(Tiempo);
            ant = i;
            i++;
@@ -107,59 +107,59 @@ i--;
   {
     case 0:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0x00);
            delay_ms(Tiempo);
             ant = i;
         
     break;
     case 1:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b01000000);
            delay_ms(Tiempo);
-           ant = i;
+            ant = i;
          
     break;
     case 2:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
-           delay_ms(Tiempo);
-           ant = i;
+           output_c(0b00100000);
+         delay_ms(Tiempo);
+          ant = i;
     break;
     case 3:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00010000);
            delay_ms(Tiempo);
            ant = i;
     break;
     case 4:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00010000);
           delay_ms(Tiempo);
            ant = i;
     break;
     case 5:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+           output_c(0b00001000);
            delay_ms(Tiempo);
             ant = i;
     break;
       case 6:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+            output_c(0b00000100);
            delay_ms(Tiempo);
             ant = i;
     break;
     
       case 7:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+            output_c(0b00000010);
            delay_ms(Tiempo);
             ant = i;
     break;
     
      case 8:
            output_b(miDisplay[i]);
-           output_c(miLeds[i]);
+            output_c(0b00000001);
            delay_ms(Tiempo);
            ant = i;
     break;
